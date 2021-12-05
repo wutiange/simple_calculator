@@ -27,6 +27,7 @@ Page({
   },
   // 求余
   bRemainder() {
+    if (isOpe) return
     this.setData({
       inputStr: this.data.inputStr + this.data.currentDigit + "%"
     })
@@ -35,6 +36,7 @@ Page({
   },
   // 除法
   bDivision() {
+    if (isOpe) return
     this.setData({
       inputStr: this.data.inputStr + this.data.currentDigit + "÷"
     })
@@ -43,6 +45,7 @@ Page({
   },
   // 乘法
   bMultiplication() {
+    if (isOpe) return
     this.setData({
       inputStr: this.data.inputStr + this.data.currentDigit + "×"
     })
@@ -51,16 +54,24 @@ Page({
   },
   // 减法
   bSubtraction() {
+    let input = this.data.inputStr
+    if (!isOpe) {
+      input += this.data.currentDigit
+    }
     this.setData({
-      inputStr: this.data.inputStr + this.data.currentDigit + "−"
+      inputStr: input + "−"
     })
     isOpe = true
     wx.vibrateShort()
   },
   // 加法
   bAddition() {
+    let input = this.data.inputStr
+    if (!isOpe) {
+      input += this.data.currentDigit
+    }
     this.setData({
-      inputStr: this.data.inputStr + this.data.currentDigit + "+"
+      inputStr: input + "+"
     })
     isOpe = true
     wx.vibrateShort()
@@ -77,7 +88,7 @@ Page({
       inputStr: "",
       currentDigit: result
     })
-    isOpe = true
+    isOpe = false
     wx.vibrateShort()
   },
   // 7
