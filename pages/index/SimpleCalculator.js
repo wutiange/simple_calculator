@@ -18,7 +18,7 @@ class SimpleCalculator {
             let a = this.digit.pop();
             this.digit.push(this.calc(a - 0, c, b - 0));
         }
-        return this.digit.pop() || "错误";
+        return this.digit.pop();
     }
 
     // 对传入进来的字符串进行预处理，也就是消除字符串中的非运算符

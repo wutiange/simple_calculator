@@ -82,7 +82,7 @@ Page({
     if (this.data.inputStr === "") {
       result = this.data.currentDigit || 0
     } else {
-      result = calc.startCalc(this.data.inputStr + this.data.currentDigit)
+      result = calc.startCalc(this.data.inputStr + this.data.currentDigit) || "错误"
     }
     this.setData({
       inputStr: "",
